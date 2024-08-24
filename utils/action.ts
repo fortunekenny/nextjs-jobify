@@ -161,3 +161,81 @@ export async function updateJobAction(
     return null;
   }
 }
+
+
+
+export async function getStatsAction(): Promise<{
+  pending: number;
+  interview: number;
+  declined: number;
+}> {
+  const userId = authenticateAndRedirect();
+  // just to show Skeleton
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  try {
+    const stats = await prisma.job.groupBy({
+      by: ["status"],
+      _count: {
+        status: true,
+      },
+      where: {
+        clerkId: userId, // replace userId with the actual clerkId
+      },
+    });
+    const statsObject = stats.reduce((acc, curr) => {
+      acc[curr.status] = curr._count.status;
+      return acc;
+    }, {} as Record<string, number>);
+
+    const defaultStats = {
+      pending: 0,
+      declined: 0,
+      interview: 0,
+      ...statsObject,
+    };
+    return defaultStats;
+  } catch (error) {
+    redirect("/jobs");
+  }
+}
+
+
+export async function getChartsDataAction(): Promise<
+  Array<{ date: string; count: number }>
+> {
+  const userId = authenticateAndRedirect();
+  const sixMonthsAgo = dayjs().subtract(6, "month").toDate();
+  try {
+    const jobs = await prisma.job.findMany({
+      where: {
+        clerkId: userId,
+        createdAt: {
+          gte: sixMonthsAgo,
+        },
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+
+    let applicationsPerMonth = jobs.reduce((acc, job) => {
+      const date = dayjs(job.createdAt).format("MMM YY");
+
+      const existingEntry = acc.find((entry) => entry.date === date);
+
+      if (existingEntry) {
+        existingEntry.count += 1;
+      } else {
+        acc.push({ date, count: 1 });
+      }
+
+      return acc;
+    }, [] as Array<{ date: string; count: number }>);
+
+    return applicationsPerMonth;
+  } catch (error) {
+    redirect("/jobs");
+  }
+}
+
+
