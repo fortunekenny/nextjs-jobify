@@ -47,9 +47,12 @@ import { Camera } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className='h-screen flex items-center justify-center'>
       <Button>default button</Button>
-      <Button variant="outline" size="icon">
+      <Button
+        variant='outline'
+        size='icon'
+      >
         <Camera />
       </Button>
     </div>
@@ -112,25 +115,35 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <header className="max-w-6xl mx-auto px-4 sm:px-8 py-6 ">
-        <Image src={Logo} alt="logo" />
+      <header className='max-w-6xl mx-auto px-4 sm:px-8 py-6 '>
+        <Image
+          src={Logo}
+          alt='logo'
+        />
       </header>
-      <section className="max-w-6xl mx-auto px-4 sm:px-8 h-screen -mt-20 grid lg:grid-cols-[1fr,400px] items-center">
+      <section className='max-w-6xl mx-auto px-4 sm:px-8 h-screen -mt-20 grid lg:grid-cols-[1fr,400px] items-center'>
         <div>
-          <h1 className="capitalize text-4xl md:text-7xl font-bold">
-            job <span className="text-primary">tracking</span> app
+          <h1 className='capitalize text-4xl md:text-7xl font-bold'>
+            job <span className='text-primary'>tracking</span> app
           </h1>
-          <p className="leading-loose max-w-md mt-4 ">
+          <p className='leading-loose max-w-md mt-4 '>
             I am baby wayfarers hoodie next level taiyaki brooklyn cliche blue
             bottle single-origin coffee chia. Aesthetic post-ironic venmo,
             quinoa lo-fi tote bag adaptogen everyday carry meggings +1 brunch
             narwhal.
           </p>
-          <Button asChild className="mt-4">
-            <Link href="/add-job">Get Started</Link>
+          <Button
+            asChild
+            className='mt-4'
+          >
+            <Link href='/add-job'>Get Started</Link>
           </Button>
         </div>
-        <Image src={LandingImg} alt="landing" className="hidden lg:block " />
+        <Image
+          src={LandingImg}
+          alt='landing'
+          className='hidden lg:block '
+        />
       </section>
     </main>
   );
@@ -194,7 +207,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang='en'>
         <body className={inter.className}>{children}</body>
       </html>
     </ClerkProvider>
@@ -328,16 +341,16 @@ import { PropsWithChildren } from "react";
 
 function layout({ children }: PropsWithChildren) {
   return (
-    <main className="grid lg:grid-cols-5">
+    <main className='grid lg:grid-cols-5'>
       {/* first-col hide on small screen */}
-      <div className="hidden lg:block lg:col-span-1 lg:min-h-screen">
+      <div className='hidden lg:block lg:col-span-1 lg:min-h-screen'>
         <Sidebar />
       </div>
       {/* second-col hide dropdown on big screen */}
 
-      <div className="lg:col-span-4">
+      <div className='lg:col-span-4'>
         <Navbar />
-        <div className="py-16 px-4 sm:px-8 lg:px-16">{children}</div>
+        <div className='py-16 px-4 sm:px-8 lg:px-16'>{children}</div>
       </div>
     </main>
   );
@@ -382,9 +395,13 @@ function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="py-4 px-8 bg-muted h-full">
-      <Image src={Logo} alt="logo" className="mx-auto" />
-      <div className="flex flex-col mt-20 gap-y-4">
+    <aside className='py-4 px-8 bg-muted h-full'>
+      <Image
+        src={Logo}
+        alt='logo'
+        className='mx-auto'
+      />
+      <div className='flex flex-col mt-20 gap-y-4'>
         {links.map((link) => {
           return (
             <Button
@@ -392,8 +409,11 @@ function Sidebar() {
               key={link.href}
               variant={pathname === link.href ? "default" : "link"}
             >
-              <Link href={link.href} className="flex items-center gap-x-2 ">
-                {link.icon} <span className="capitalize">{link.label}</span>
+              <Link
+                href={link.href}
+                className='flex items-center gap-x-2 '
+              >
+                {link.icon} <span className='capitalize'>{link.label}</span>
               </Link>
             </Button>
           );
@@ -435,13 +455,13 @@ import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
   return (
-    <nav className="bg-muted py-4 sm:px-16 lg:px-24 px-4 flex items-center justify-between">
+    <nav className='bg-muted py-4 sm:px-16 lg:px-24 px-4 flex items-center justify-between'>
       <div>
         <LinksDropdown />
       </div>
-      <div className="flex items-center gap-x-4">
+      <div className='flex items-center gap-x-4'>
         <ThemeToggle />
-        <UserButton afterSignOutUrl="/" />
+        <UserButton afterSignOutUrl='/' />
       </div>
     </nav>
   );
@@ -504,23 +524,32 @@ import Link from "next/link";
 function DropdownLinks() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="lg:hidden">
-        <Button variant="outline" size="icon">
+      <DropdownMenuTrigger
+        asChild
+        className='lg:hidden'
+      >
+        <Button
+          variant='outline'
+          size='icon'
+        >
           <AlignLeft />
 
-          <span className="sr-only">Toggle links</span>
+          <span className='sr-only'>Toggle links</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-52 lg:hidden "
-        align="start"
+        className='w-52 lg:hidden '
+        align='start'
         sideOffset={25}
       >
         {links.map((link) => {
           return (
             <DropdownMenuItem key={link.href}>
-              <Link href={link.href} className="flex items-center gap-x-2 ">
-                {link.icon} <span className="capitalize">{link.label}</span>
+              <Link
+                href={link.href}
+                className='flex items-center gap-x-2 '
+              >
+                {link.icon} <span className='capitalize'>{link.label}</span>
               </Link>
             </DropdownMenuItem>
           );
@@ -567,7 +596,10 @@ export default Providers;
 app/layout
 
 ```tsx
-<html lang="en" suppressHydrationWarning>
+<html
+  lang='en'
+  suppressHydrationWarning
+>
   <body className={inter.className}>
     <Providers>{children}</Providers>
   </body>
@@ -611,8 +643,8 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
+        attribute='class'
+        defaultTheme='system'
         enableSystem
         disableTransitionOnChange
       >
@@ -647,13 +679,16 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
+        <Button
+          variant='outline'
+          size='icon'
+        >
+          <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
+          <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
+          <span className='sr-only'>Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align='end'>
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>
@@ -720,21 +755,27 @@ function CreateJobForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='space-y-8'
+      >
         <FormField
           control={form.control}
-          name="username"
+          name='username'
           render={({ field }) => (
             <FormItem>
               <FormLabel>Username</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input
+                  placeholder='shadcn'
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type='submit'>Submit</Button>
       </form>
     </Form>
   );
@@ -912,7 +953,7 @@ export function CustomFormField({ name, control }: CustomFormFieldProps) {
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="capitalize">{name}</FormLabel>
+          <FormLabel className='capitalize'>{name}</FormLabel>
           <FormControl>
             <Input {...field} />
           </FormControl>
@@ -942,8 +983,11 @@ export function CustomFormSelect({
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel className="capitalize">{labelText || name}</FormLabel>
-          <Select onValueChange={field.onChange} defaultValue={field.value}>
+          <FormLabel className='capitalize'>{labelText || name}</FormLabel>
+          <Select
+            onValueChange={field.onChange}
+            defaultValue={field.value}
+          >
             <FormControl>
               <SelectTrigger>
                 <SelectValue />
@@ -952,7 +996,10 @@ export function CustomFormSelect({
             <SelectContent>
               {items.map((item) => {
                 return (
-                  <SelectItem key={item} value={item}>
+                  <SelectItem
+                    key={item}
+                    value={item}
+                  >
                     {item}
                   </SelectItem>
                 );
@@ -1050,33 +1097,45 @@ function CreateJobForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-muted p-8 rounded"
+        className='bg-muted p-8 rounded'
       >
-        <h2 className="capitalize font-semibold text-4xl mb-6">add job</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <h2 className='capitalize font-semibold text-4xl mb-6'>add job</h2>
+        <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start'>
           {/* position */}
-          <CustomFormField name="position" control={form.control} />
+          <CustomFormField
+            name='position'
+            control={form.control}
+          />
           {/* company */}
-          <CustomFormField name="company" control={form.control} />
+          <CustomFormField
+            name='company'
+            control={form.control}
+          />
           {/* location */}
-          <CustomFormField name="location" control={form.control} />
+          <CustomFormField
+            name='location'
+            control={form.control}
+          />
 
           {/* job status */}
           <CustomFormSelect
-            name="status"
+            name='status'
             control={form.control}
-            labelText="job status"
+            labelText='job status'
             items={Object.values(JobStatus)}
           />
           {/* job  type */}
           <CustomFormSelect
-            name="mode"
+            name='mode'
             control={form.control}
-            labelText="job mode"
+            labelText='job mode'
             items={Object.values(JobMode)}
           />
 
-          <Button type="submit" className="self-end capitalize">
+          <Button
+            type='submit'
+            className='self-end capitalize'
+          >
             create job
           </Button>
         </div>
@@ -1256,7 +1315,7 @@ function authenticateAndRedirect(): string {
 }
 
 export async function createJobAction(
-  values: CreateAndEditJobType
+  values: CreateAndEditJobType,
 ): Promise<JobType | null> {
   // await new Promise((resolve) => setTimeout(resolve, 3000));
   const userId = authenticateAndRedirect();
@@ -1317,13 +1376,13 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
             staleTime: 60 * 1000 * 5,
           },
         },
-      })
+      }),
   );
 
   return (
     <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
+      attribute='class'
+      defaultTheme='system'
       enableSystem
       disableTransitionOnChange
     >
@@ -1395,7 +1454,11 @@ function onSubmit(values: CreateAndEditJobType) {
   mutate(values);
 }
 // return
-<Button type="submit" className="self-end capitalize" disabled={isPending}>
+<Button
+  type='submit'
+  className='self-end capitalize'
+  disabled={isPending}
+>
   {isPending ? "loading..." : "create job"}
 </Button>;
 ```
@@ -1524,7 +1587,7 @@ export async function getAllJobsAction({
 
 ```tsx
 function loading() {
-  return <h2 className="text-xl font-medium capitalize">loading...</h2>;
+  return <h2 className='text-xl font-medium capitalize'>loading...</h2>;
 }
 export default loading;
 ```
@@ -1535,7 +1598,7 @@ JobCard.tsx
 import { JobType } from "@/utils/types";
 
 function JobCard({ job }: { job: JobType }) {
-  return <h1 className="text-3xl">JobCard</h1>;
+  return <h1 className='text-3xl'>JobCard</h1>;
 }
 export default JobCard;
 ```
@@ -1650,30 +1713,36 @@ function SearchContainer() {
 
   return (
     <form
-      className="bg-muted mb-16 p-8 grid sm:grid-cols-2 md:grid-cols-3  gap-4 rounded-lg"
+      className='bg-muted mb-16 p-8 grid sm:grid-cols-2 md:grid-cols-3  gap-4 rounded-lg'
       onSubmit={handleSubmit}
     >
       <Input
-        type="text"
-        placeholder="Search Jobs"
-        name="search"
+        type='text'
+        placeholder='Search Jobs'
+        name='search'
         defaultValue={search}
       />
-      <Select defaultValue={jobStatus} name="jobStatus">
+      <Select
+        defaultValue={jobStatus}
+        name='jobStatus'
+      >
         <SelectTrigger>
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           {["all", ...Object.values(JobStatus)].map((jobStatus) => {
             return (
-              <SelectItem key={jobStatus} value={jobStatus}>
+              <SelectItem
+                key={jobStatus}
+                value={jobStatus}
+              >
                 {jobStatus}
               </SelectItem>
             );
           })}
         </SelectContent>
       </Select>
-      <Button type="submit">Search</Button>
+      <Button type='submit'>Search</Button>
     </form>
   );
 }
@@ -1739,15 +1808,20 @@ function JobsList() {
   });
   const jobs = data?.jobs || [];
 
-  if (isPending) return <h2 className="text-xl">Please Wait...</h2>;
+  if (isPending) return <h2 className='text-xl'>Please Wait...</h2>;
 
-  if (jobs.length < 1) return <h2 className="text-xl">No Jobs Found...</h2>;
+  if (jobs.length < 1) return <h2 className='text-xl'>No Jobs Found...</h2>;
   return (
     <>
       {/*button container  */}
-      <div className="grid md:grid-cols-2  gap-8">
+      <div className='grid md:grid-cols-2  gap-8'>
         {jobs.map((job) => {
-          return <JobCard key={job.id} job={job} />;
+          return (
+            <JobCard
+              key={job.id}
+              job={job}
+            />
+          );
         })}
       </div>
     </>
@@ -1825,15 +1899,18 @@ import DeleteJobButton from "./DeleteJobButton";
 function JobCard({ job }: { job: JobType }) {
   const date = new Date(job.createdAt).toLocaleDateString();
   return (
-    <Card className="bg-muted">
+    <Card className='bg-muted'>
       <CardHeader>
         <CardTitle>{job.position}</CardTitle>
         <CardDescription>{job.company}</CardDescription>
       </CardHeader>
       <Separator />
       <CardContent>{/* card info */}</CardContent>
-      <CardFooter className="flex gap-4">
-        <Button asChild size="sm">
+      <CardFooter className='flex gap-4'>
+        <Button
+          asChild
+          size='sm'
+        >
           <Link href={`/jobs/${job.id}`}>edit</Link>
         </Button>
         <DeleteJobButton />
@@ -1875,7 +1952,7 @@ JobInfo.tsx
 ```tsx
 function JobInfo({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex gap-x-2 items-center">
+    <div className='flex gap-x-2 items-center'>
       {icon}
       {text}
     </div>
@@ -1887,12 +1964,24 @@ export default JobInfo;
 JobCard.tsx
 
 ```tsx
-<CardContent className="mt-4 grid grid-cols-2 gap-4">
-  <JobInfo icon={<Briefcase />} text={job.mode} />
-  <JobInfo icon={<MapPin />} text={job.location} />
-  <JobInfo icon={<CalendarDays />} text={date} />
-  <Badge className="w-32  justify-center">
-    <JobInfo icon={<RadioTower className="w-4 h-4" />} text={job.status} />
+<CardContent className='mt-4 grid grid-cols-2 gap-4'>
+  <JobInfo
+    icon={<Briefcase />}
+    text={job.mode}
+  />
+  <JobInfo
+    icon={<MapPin />}
+    text={job.location}
+  />
+  <JobInfo
+    icon={<CalendarDays />}
+    text={date}
+  />
+  <Badge className='w-32  justify-center'>
+    <JobInfo
+      icon={<RadioTower className='w-4 h-4' />}
+      text={job.status}
+    />
   </Badge>
 </CardContent>
 ```
@@ -2012,7 +2101,7 @@ function DeleteJobBtn({ id }: { id: string }) {
   });
   return (
     <Button
-      size="sm"
+      size='sm'
       disabled={isPending}
       onClick={() => {
         mutate(id);
@@ -2190,7 +2279,7 @@ export default JobDetailPage;
 ```ts
 export async function updateJobAction(
   id: string,
-  values: CreateAndEditJobType
+  values: CreateAndEditJobType,
 ): Promise<JobType | null> {
   const userId = authenticateAndRedirect();
 
@@ -2334,35 +2423,44 @@ function EditJobForm({ jobId }: { jobId: string }) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-muted p-8 rounded"
+        className='bg-muted p-8 rounded'
       >
-        <h2 className="capitalize font-semibold text-4xl mb-6">edit job</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <h2 className='capitalize font-semibold text-4xl mb-6'>edit job</h2>
+        <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3 items-start'>
           {/* position */}
-          <CustomFormField name="position" control={form.control} />
+          <CustomFormField
+            name='position'
+            control={form.control}
+          />
           {/* company */}
-          <CustomFormField name="company" control={form.control} />
+          <CustomFormField
+            name='company'
+            control={form.control}
+          />
           {/* location */}
-          <CustomFormField name="location" control={form.control} />
+          <CustomFormField
+            name='location'
+            control={form.control}
+          />
 
           {/* job status */}
           <CustomFormSelect
-            name="status"
+            name='status'
             control={form.control}
-            labelText="job status"
+            labelText='job status'
             items={Object.values(JobStatus)}
           />
           {/* job  type */}
           <CustomFormSelect
-            name="mode"
+            name='mode'
             control={form.control}
-            labelText="job mode"
+            labelText='job mode'
             items={Object.values(JobMode)}
           />
 
           <Button
-            type="submit"
-            className="self-end capitalize"
+            type='submit'
+            className='self-end capitalize'
             disabled={isPending}
           >
             {isPending ? "updating..." : "edit job"}
@@ -2624,7 +2722,7 @@ export async function getChartsDataAction(): Promise<
 
 ```tsx
 function loading() {
-  return <h2 className="text-xl font-medium capitalize">loading...</h2>;
+  return <h2 className='text-xl font-medium capitalize'>loading...</h2>;
 }
 export default loading;
 ```
@@ -2731,10 +2829,10 @@ type StatsCardsProps = {
 
 function StatsCards({ title, value }: StatsCardsProps) {
   return (
-    <Card className="bg-muted">
-      <CardHeader className="flex flex-row justify-between items-center">
-        <CardTitle className="capitalize">{title}</CardTitle>
-        <CardDescription className="text-4xl font-extrabold text-primary mt-[0px!important]">
+    <Card className='bg-muted'>
+      <CardHeader className='flex flex-row justify-between items-center'>
+        <CardTitle className='capitalize'>{title}</CardTitle>
+        <CardDescription className='text-4xl font-extrabold text-primary mt-[0px!important]'>
           {value}
         </CardDescription>
       </CardHeader>
@@ -2744,13 +2842,13 @@ function StatsCards({ title, value }: StatsCardsProps) {
 
 export function StatsLoadingCard() {
   return (
-    <Card className="w-[330px] h-[88px]">
-      <CardHeader className="flex flex-row justify-between items-center">
-        <div className="flex items-center space-x-4">
-          <Skeleton className="h-12 w-12 rounded-full" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-[150px]" />
-            <Skeleton className="h-4 w-[100px]" />
+    <Card className='w-[330px] h-[88px]'>
+      <CardHeader className='flex flex-row justify-between items-center'>
+        <div className='flex items-center space-x-4'>
+          <Skeleton className='h-12 w-12 rounded-full' />
+          <div className='space-y-2'>
+            <Skeleton className='h-4 w-[150px]' />
+            <Skeleton className='h-4 w-[100px]' />
           </div>
         </div>
       </CardHeader>
@@ -2759,6 +2857,44 @@ export function StatsLoadingCard() {
 }
 
 export default StatsCards;
+```
+
+### stats loader
+
+stats/loading.tsx
+
+```tsx
+import { StatsLoadingCard } from "@/components/StatsCard";
+
+function loading() {
+  return (
+    <div className='grid md:grid-cols-2 gap-4 lg:grid-cols-3'>
+      <StatsLoadingCard />
+      <StatsLoadingCard />
+      <StatsLoadingCard />
+    </div>
+  );
+}
+export default loading;
+```
+
+### jobs loader
+
+jobs/loading.txs
+
+```tsx
+import { Skeleton } from "@/components/ui/skeleton";
+
+function loading() {
+  return (
+    <div className='p-8 grid sm:grid-cols-3 gap-4 rounded-lg border'>
+      <Skeleton className='h-10' />
+      <Skeleton className='h-10' />
+      <Skeleton className='h-10' />
+    </div>
+  );
+}
+export default loading;
 ```
 
 ## Challenge - StatsContainer
@@ -2811,7 +2947,7 @@ function StatsContainer() {
 
   if (isPending)
     return (
-      <div className="grid md:grid-cols-2 gap-4 lg:grid-cols-3">
+      <div className='grid md:grid-cols-2 gap-4 lg:grid-cols-3'>
         <StatsLoadingCard />
         <StatsLoadingCard />
         <StatsLoadingCard />
@@ -2819,10 +2955,19 @@ function StatsContainer() {
     );
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 lg:grid-cols-3">
-      <StatsCard title="pending jobs" value={data?.pending || 0} />
-      <StatsCard title="interviews set" value={data?.interview || 0} />
-      <StatsCard title="jobs declined" value={data?.declined || 0} />
+    <div className='grid md:grid-cols-2 gap-4 lg:grid-cols-3'>
+      <StatsCard
+        title='pending jobs'
+        value={data?.pending || 0}
+      />
+      <StatsCard
+        title='interviews set'
+        value={data?.interview || 0}
+      />
+      <StatsCard
+        title='jobs declined'
+        value={data?.declined || 0}
+      />
     </div>
   );
 }
@@ -2896,20 +3041,30 @@ function ChartsContainer() {
     queryFn: () => getChartsDataAction(),
   });
 
-  if (isPending) return <h2 className="text-xl font-medium">Please wait...</h2>;
+  if (isPending) return <h2 className='text-xl font-medium'>Please wait...</h2>;
   if (!data || data.length < 1) return null;
   return (
-    <section className="mt-16">
-      <h1 className="text-4xl font-semibold text-center">
+    <section className='mt-16'>
+      <h1 className='text-4xl font-semibold text-center'>
         Monthly Applications
       </h1>
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data} margin={{ top: 50 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" />
+      <ResponsiveContainer
+        width='100%'
+        height={300}
+      >
+        <BarChart
+          data={data}
+          margin={{ top: 50 }}
+        >
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='date' />
           <YAxis allowDecimals={false} />
           <Tooltip />
-          <Bar dataKey="count" fill="#2563eb" barSize={75} />
+          <Bar
+            dataKey='count'
+            fill='#2563eb'
+            barSize={75}
+          />
         </BarChart>
       </ResponsiveContainer>
     </section>
@@ -2995,7 +3150,7 @@ type ButtonContainerProps = {
 };
 import { Button } from "./ui/button";
 function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
-  return <h2 className="text-4xl">button container</h2>;
+  return <h2 className='text-4xl'>button container</h2>;
 }
 export default ButtonContainer;
 ```
@@ -3055,12 +3210,12 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
     router.push(`${pathname}?${params.toString()}`);
   };
   return (
-    <div className="flex  gap-x-2">
+    <div className='flex  gap-x-2'>
       {pageButtons.map((page) => {
         return (
           <Button
             key={page}
-            size="icon"
+            size='icon'
             variant={currentPage === page ? "default" : "outline"}
             onClick={() => handlePageChange(page)}
           >
@@ -3115,7 +3270,7 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
     return (
       <Button
         key={page}
-        size="icon"
+        size='icon'
         variant={activeClass ? "default" : "outline"}
         onClick={() => handlePageChange(page)}
       >
@@ -3128,15 +3283,19 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
     const pageButtons = [];
     // first page
     pageButtons.push(
-      addPageButton({ page: 1, activeClass: currentPage === 1 })
+      addPageButton({ page: 1, activeClass: currentPage === 1 }),
     );
     // dots
 
     if (currentPage > 3) {
       pageButtons.push(
-        <Button size="icon" variant="outline" key="dots-1">
+        <Button
+          size='icon'
+          variant='outline'
+          key='dots-1'
+        >
           ...
-        </Button>
+        </Button>,
       );
     }
     // one before current page
@@ -3145,7 +3304,7 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
         addPageButton({
           page: currentPage - 1,
           activeClass: false,
-        })
+        }),
       );
     }
     // current page
@@ -3154,7 +3313,7 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
         addPageButton({
           page: currentPage,
           activeClass: true,
-        })
+        }),
       );
     }
     // one after current page
@@ -3164,31 +3323,35 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
         addPageButton({
           page: currentPage + 1,
           activeClass: false,
-        })
+        }),
       );
     }
     if (currentPage < totalPages - 2) {
       pageButtons.push(
-        <Button size="icon" variant="outline" key="dots-1">
+        <Button
+          size='icon'
+          variant='outline'
+          key='dots-1'
+        >
           ...
-        </Button>
+        </Button>,
       );
     }
     pageButtons.push(
       addPageButton({
         page: totalPages,
         activeClass: currentPage === totalPages,
-      })
+      }),
     );
     return pageButtons;
   };
 
   return (
-    <div className="flex  gap-x-2">
+    <div className='flex  gap-x-2'>
       {/* prev */}
       <Button
-        className="flex items-center gap-x-2 "
-        variant="outline"
+        className='flex items-center gap-x-2 '
+        variant='outline'
         onClick={() => {
           let prevPage = currentPage - 1;
           if (prevPage < 1) prevPage = totalPages;
@@ -3201,13 +3364,13 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
       {renderPageButtons()}
       {/* next */}
       <Button
-        className="flex items-center gap-x-2 "
+        className='flex items-center gap-x-2 '
         onClick={() => {
           let nextPage = currentPage + 1;
           if (nextPage > totalPages) nextPage = 1;
           handlePageChange(nextPage);
         }}
-        variant="outline"
+        variant='outline'
       >
         next
         <ChevronRight />

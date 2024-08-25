@@ -182,6 +182,8 @@ export async function getStatsAction(): Promise<{
         clerkId: userId, // replace userId with the actual clerkId
       },
     });
+
+    
     const statsObject = stats.reduce((acc, curr) => {
       acc[curr.status] = curr._count.status;
       return acc;
@@ -193,6 +195,7 @@ export async function getStatsAction(): Promise<{
       interview: 0,
       ...statsObject,
     };
+    
     return defaultStats;
   } catch (error) {
     redirect("/jobs");
@@ -205,6 +208,7 @@ export async function getChartsDataAction(): Promise<
 > {
   const userId = authenticateAndRedirect();
   const sixMonthsAgo = dayjs().subtract(6, "month").toDate();
+  
   try {
     const jobs = await prisma.job.findMany({
       where: {
@@ -217,6 +221,7 @@ export async function getChartsDataAction(): Promise<
         createdAt: "asc",
       },
     });
+    
 
     let applicationsPerMonth = jobs.reduce((acc, job) => {
       const date = dayjs(job.createdAt).format("MMM YY");
@@ -237,5 +242,4 @@ export async function getChartsDataAction(): Promise<
     redirect("/jobs");
   }
 }
-
 
